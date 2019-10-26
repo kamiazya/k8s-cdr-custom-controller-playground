@@ -19,7 +19,7 @@ limitations under the License.
 package scheme
 
 import (
-	samplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/hoge/v1"
+	samplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/sample/v1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"

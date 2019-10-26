@@ -20,8 +20,8 @@ package fake
 
 import (
 	clientset "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned"
-	samplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned/typed/hoge/v1"
-	fakesamplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned/typed/hoge/v1/fake"
+	samplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned/typed/sample/v1"
+	fakesamplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned/typed/sample/v1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

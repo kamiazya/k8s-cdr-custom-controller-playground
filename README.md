@@ -30,9 +30,9 @@ $ ../../../k8s.io/code-generator/generate-groups.sh \
   all \
   github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client \
   github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis \
-  hoge:v1
+  sample:v1
 Generating deepcopy funcs
-Generating clientset for hoge:v1 at github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset
-Generating listers for hoge:v1 at github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/listers
-Generating informers for hoge:v1 at github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/informers
+Generating clientset for sample:v1 at github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset
+Generating listers for sample:v1 at github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/listers
+Generating informers for sample:v1 at github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/informers
 ```

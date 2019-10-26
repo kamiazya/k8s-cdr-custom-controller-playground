@@ -19,7 +19,7 @@ limitations under the License.
 package fake
 
 import (
-	v1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned/typed/hoge/v1"
+	v1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned/typed/sample/v1"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )

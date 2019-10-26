@@ -19,7 +19,7 @@ limitations under the License.
 package fake
 
 import (
-	hogev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/hoge/v1"
+	samplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/sample/v1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -39,20 +39,20 @@ var hogesResource = schema.GroupVersionResource{Group: "sample.kamiazya.tech", V
 var hogesKind = schema.GroupVersionKind{Group: "sample.kamiazya.tech", Version: "v1", Kind: "Hoge"}
 
 // Get takes name of the hoge, and returns the corresponding hoge object, and an error if there is any.
-func (c *FakeHoges) Get(name string, options v1.GetOptions) (result *hogev1.Hoge, err error) {
+func (c *FakeHoges) Get(name string, options v1.GetOptions) (result *samplev1.Hoge, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewGetAction(hogesResource, c.ns, name), &hogev1.Hoge{})
+		Invokes(testing.NewGetAction(hogesResource, c.ns, name), &samplev1.Hoge{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*hogev1.Hoge), err
+	return obj.(*samplev1.Hoge), err
 }
 
 // List takes label and field selectors, and returns the list of Hoges that match those selectors.
-func (c *FakeHoges) List(opts v1.ListOptions) (result *hogev1.HogeList, err error) {
+func (c *FakeHoges) List(opts v1.ListOptions) (result *samplev1.HogeList, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewListAction(hogesResource, hogesKind, c.ns, opts), &hogev1.HogeList{})
+		Invokes(testing.NewListAction(hogesResource, hogesKind, c.ns, opts), &samplev1.HogeList{})
 
 	if obj == nil {
 		return nil, err
@@ -62,8 +62,8 @@ func (c *FakeHoges) List(opts v1.ListOptions) (result *hogev1.HogeList, err erro
 	if label == nil {
 		label = labels.Everything()
 	}
-	list := &hogev1.HogeList{ListMeta: obj.(*hogev1.HogeList).ListMeta}
-	for _, item := range obj.(*hogev1.HogeList).Items {
+	list := &samplev1.HogeList{ListMeta: obj.(*samplev1.HogeList).ListMeta}
+	for _, item := range obj.(*samplev1.HogeList).Items {
 		if label.Matches(labels.Set(item.Labels)) {
 			list.Items = append(list.Items, item)
 		}
@@ -79,31 +79,31 @@ func (c *FakeHoges) Watch(opts v1.ListOptions) (watch.Interface, error) {
 }
 
 // Create takes the representation of a hoge and creates it.  Returns the server's representation of the hoge, and an error, if there is any.
-func (c *FakeHoges) Create(hoge *hogev1.Hoge) (result *hogev1.Hoge, err error) {
+func (c *FakeHoges) Create(hoge *samplev1.Hoge) (result *samplev1.Hoge, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewCreateAction(hogesResource, c.ns, hoge), &hogev1.Hoge{})
+		Invokes(testing.NewCreateAction(hogesResource, c.ns, hoge), &samplev1.Hoge{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*hogev1.Hoge), err
+	return obj.(*samplev1.Hoge), err
 }
 
 // Update takes the representation of a hoge and updates it. Returns the server's representation of the hoge, and an error, if there is any.
-func (c *FakeHoges) Update(hoge *hogev1.Hoge) (result *hogev1.Hoge, err error) {
+func (c *FakeHoges) Update(hoge *samplev1.Hoge) (result *samplev1.Hoge, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewUpdateAction(hogesResource, c.ns, hoge), &hogev1.Hoge{})
+		Invokes(testing.NewUpdateAction(hogesResource, c.ns, hoge), &samplev1.Hoge{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*hogev1.Hoge), err
+	return obj.(*samplev1.Hoge), err
 }
 
 // Delete takes name of the hoge and deletes it. Returns an error if one occurs.
 func (c *FakeHoges) Delete(name string, options *v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewDeleteAction(hogesResource, c.ns, name), &hogev1.Hoge{})
+		Invokes(testing.NewDeleteAction(hogesResource, c.ns, name), &samplev1.Hoge{})
 
 	return err
 }
@@ -112,17 +112,17 @@ func (c *FakeHoges) Delete(name string, options *v1.DeleteOptions) error {
 func (c *FakeHoges) DeleteCollection(options *v1.DeleteOptions, listOptions v1.ListOptions) error {
 	action := testing.NewDeleteCollectionAction(hogesResource, c.ns, listOptions)
 
-	_, err := c.Fake.Invokes(action, &hogev1.HogeList{})
+	_, err := c.Fake.Invokes(action, &samplev1.HogeList{})
 	return err
 }
 
 // Patch applies the patch and returns the patched hoge.
-func (c *FakeHoges) Patch(name string, pt types.PatchType, data []byte, subresources ...string) (result *hogev1.Hoge, err error) {
+func (c *FakeHoges) Patch(name string, pt types.PatchType, data []byte, subresources ...string) (result *samplev1.Hoge, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewPatchSubresourceAction(hogesResource, c.ns, name, pt, data, subresources...), &hogev1.Hoge{})
+		Invokes(testing.NewPatchSubresourceAction(hogesResource, c.ns, name, pt, data, subresources...), &samplev1.Hoge{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*hogev1.Hoge), err
+	return obj.(*samplev1.Hoge), err
 }

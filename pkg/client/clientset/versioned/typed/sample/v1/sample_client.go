@@ -19,7 +19,7 @@ limitations under the License.
 package v1
 
 import (
-	v1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/hoge/v1"
+	v1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/sample/v1"
 	"github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )

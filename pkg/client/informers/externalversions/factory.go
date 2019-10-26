@@ -24,8 +24,8 @@ import (
 	time "time"
 
 	versioned "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned"
-	hoge "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/informers/externalversions/hoge"
 	internalinterfaces "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/informers/externalversions/internalinterfaces"
+	sample "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/informers/externalversions/sample"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -172,9 +172,9 @@ type SharedInformerFactory interface {
 	ForResource(resource schema.GroupVersionResource) (GenericInformer, error)
 	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
 
-	Sample() hoge.Interface
+	Sample() sample.Interface
 }
 
-func (f *sharedInformerFactory) Sample() hoge.Interface {
-	return hoge.New(f, f.namespace, f.tweakListOptions)
+func (f *sharedInformerFactory) Sample() sample.Interface {
+	return sample.New(f, f.namespace, f.tweakListOptions)
 }

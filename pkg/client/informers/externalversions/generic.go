@@ -21,7 +21,7 @@ package externalversions
 import (
 	"fmt"
 
-	v1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/hoge/v1"
+	v1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/sample/v1"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
 )

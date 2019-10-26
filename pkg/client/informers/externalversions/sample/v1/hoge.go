@@ -21,10 +21,10 @@ package v1
 import (
 	time "time"
 
-	hogev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/hoge/v1"
+	samplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/sample/v1"
 	versioned "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned"
 	internalinterfaces "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/informers/externalversions/internalinterfaces"
-	v1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/listers/hoge/v1"
+	v1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/listers/sample/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	watch "k8s.io/apimachinery/pkg/watch"
@@ -70,7 +70,7 @@ func NewFilteredHogeInformer(client versioned.Interface, namespace string, resyn
 				return client.SampleV1().Hoges(namespace).Watch(options)
 			},
 		},
-		&hogev1.Hoge{},
+		&samplev1.Hoge{},
 		resyncPeriod,
 		indexers,
 	)
@@ -81,7 +81,7 @@ func (f *hogeInformer) defaultInformer(client versioned.Interface, resyncPeriod 
 }
 
 func (f *hogeInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&hogev1.Hoge{}, f.defaultInformer)
+	return f.factory.InformerFor(&samplev1.Hoge{}, f.defaultInformer)
 }
 
 func (f *hogeInformer) Lister() v1.HogeLister {

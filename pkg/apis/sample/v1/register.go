@@ -5,12 +5,17 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	"github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/hoge"
+	"github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/apis/sample"
 )
 
 var (
 	// SchemeGroupVersion is group version used to register these objects
-	SchemeGroupVersion = schema.GroupVersion{Group: hoge.GroupName, Version: "v1"}
+	SchemeGroupVersion = schema.GroupVersion{Group: sample.GroupName, Version: "v1"}
+	// SchemeBuilder calls Register for you.
+	SchemeBuilder = runtime.NewSchemeBuilder(addKnownTypes)
+	// AddToScheme applies all the stored functions to the scheme. A non-nil error
+	// indicates that one function failed and the attempt was abandoned.
+	AddToScheme = SchemeBuilder.AddToScheme
 )
 
 // Kind takes an unqualified kind and returns back a Group qualified GroupKind

@@ -21,7 +21,7 @@ package versioned
 import (
 	"fmt"
 
-	samplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned/typed/hoge/v1"
+	samplev1 "github.com/kamiazya/k8s-cdr-custom-controller-playground/pkg/client/clientset/versioned/typed/sample/v1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"
